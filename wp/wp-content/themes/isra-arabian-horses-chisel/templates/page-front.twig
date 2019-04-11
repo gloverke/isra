@@ -1,0 +1,26 @@
+{% extends "layouts/base.twig" %}
+{% set pageName = 'Home' %}
+
+{% block content %}
+
+  {% if slider %}
+    {% include 'components/slider-home.twig' %}
+  {% endif %}
+
+  {% if below_slider %}
+    {% include 'components/featured-home.twig' %}
+  {% endif %}
+
+  <div class="bg section">
+
+  {% if recent %}
+    <div class="o-wrapper--lg">
+      {% for post in recent %}
+         {% include 'components/blog-item.twig' %}
+      {% endfor %}
+    </div>
+  {% endif %}
+  </div>
+{% endblock %}
+
+

@@ -1,0 +1,14 @@
+{
+  "generator-chisel": {
+    "config": {
+      "name": "Isra Arabian Horses",
+      "author": "Rafal",
+      "projectType": "wp-with-fe",
+      "nameSlug": "isra-arabian-horses",
+      "nameCamel": "IsraArabianHorses",
+      "chiselVersion": "0.15.0",
+      "has_jquery": true,
+      "has_jquery_vendor_config": true
+    }
+  }
+}

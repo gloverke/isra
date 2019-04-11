@@ -1,0 +1,17 @@
+{% extends "layouts/base.twig" %}
+{% set pageName = 'Blog' %}
+
+{% block content %}
+<div class="section bg">
+  <div class="o-wrapper blog-list">
+    <h1 class="page-title">Latest Announcements</h1>
+    {% include 'components/blog-item-list.twig' %}
+    {% include 'components/blog-item-list.twig' %}
+    {% include 'components/blog-item-list.twig' %}
+    {% include 'components/pagination.twig' %}
+  </div>
+
+</div>
+{% endblock %}
+
+

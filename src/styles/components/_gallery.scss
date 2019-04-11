@@ -1,0 +1,152 @@
+/* ==========================================================================
+   #GALLERY
+   ========================================================================== */
+
+.slider-gallery {
+	margin-bottom: 2rem;
+	padding: 1.5rem 0 6rem;
+
+	.slick-arrow {
+		border-color: transparent #f2efef #f2efef  transparent;
+
+		&.slick-next {
+		right: -5px;
+		}
+
+		&.slick-prev {
+		left: -5px;
+		}
+	}
+
+	@include bp(medium) {
+		padding-left: 2.5rem;
+		padding-right: 2.5rem;
+
+		.slick-arrow {
+		    border-width: 0 15px 15px 0;
+		    padding: 13px;
+
+			&.slick-next {
+			right: 0;
+			}
+
+			&.slick-prev {
+			left: 0;
+		}
+		}
+	}
+
+	@include bp(xlarge)  {
+		padding-left: 4rem;
+		padding-right: 4rem;
+	}
+}
+
+.slide-gallery__item {
+margin: 0 -2rem;
+	outline: 0 none;
+	position: relative;
+
+	&.slick-center {
+
+		z-index: 100;
+		position: relative;
+
+		.c-btn {
+			display: block;
+		}
+
+		.slide-gallery__content {
+			transform: scale(1);
+
+			div {
+			filter: none;
+			}
+
+			img {
+			filter: none;
+			}
+		}
+	}
+}
+
+.prevSlide, .nextSlide {
+  z-index: 50;
+}
+
+@media screen and (min-width: 561px) {
+  .prevSlide .slide-gallery__content,
+  .nextSlide .slide-gallery__content {
+    transform: scale(.95);
+    transition: none;
+  }
+  }
+
+.slide-gallery__content {
+	color: $color-white;
+	transform: scale(.85);
+	transition: all .3s;
+	z-index: 20;
+	border:  5px solid  #f8f8f8;
+
+	h3 {
+		padding: 0 $spacer*1.5;
+		margin-bottom: 0;
+		font-size: 1.8em;
+		letter-spacing: .3rem;
+	}
+
+	span {
+		margin-bottom: 2rem;
+		padding: 0 $spacer*1.5;
+		display: block;
+		font-size: 60%;
+		letter-spacing: .1rem;
+	}
+
+	.c-btn {
+		display: none;
+		letter-spacing: .1rem;
+		text-transform: uppercase;
+		text-align: center;
+		width: 100%;
+		justify-content: center;
+	}
+
+	img {
+	  filter: blur(3px);
+		display: block;
+		min-height: 300px;
+		max-height: 500px;
+		height: 100%;
+		width: 100%;
+		object-fit: cover;
+	}
+
+	div {
+	  filter: blur(3px);
+		left: 0;
+		width: 100%;
+		bottom: 0;
+		position: absolute;
+	}
+
+	@include bp(small) {
+		img {
+			min-height: 500px;
+			max-height: 700px;
+		}
+	}
+
+	@include bp(large) {
+		img {
+			max-height: none;
+			height: 1000px;
+		}
+
+		.c-btn {
+			padding-top: 1.3rem;
+			padding-bottom: 1.3rem;
+		}
+	}
+}

@@ -1,0 +1,16 @@
+{% extends "layouts/base.twig" %}
+{% set pageName = post.title %}
+
+{% block content %}
+  <div class="section bg">
+	<div class="o-wrapper--md">
+		<h1 class="page-title page-title--border text-uppercase">{{ post.title }}</h1>
+    {% if gallery %}
+		  {% include 'components/gallery.twig' %}
+    {% endif %}
+	</div>
+
+</div>
+{% endblock %}
+
+

@@ -1,0 +1,20 @@
+<div class="slider-gallery">
+  {% for horse in gallery %}
+	<div class="slide-gallery__item">
+		<div class="slide-gallery__content">
+      {% if horse.get_field('h_gallery_image') %}
+			 <img src="{{ horse.get_field('h_gallery_image') }}" alt="Horse Gallery Image" />
+      {% endif %}
+			<div>
+        {% if horse.get_field('h_gallery_title') %}
+				  <h3>{{ horse.get_field('h_gallery_title') }}</h3>
+        {% endif %}
+        {% if horse.get_field('h_gallery_subtitle') %}
+				  <span>{{ horse.get_field('h_gallery_subtitle') }}</span>
+        {% endif %}
+				<a href="{{ horse.link }}" class="c-btn">View Profile</a>
+			</div>
+ 		</div>
+	</div>
+  {% endfor %}
+</div>

@@ -1,0 +1,142 @@
+/* ==========================================================================
+   #Sliders
+   ========================================================================== */
+
+.slider-home__slide {
+	padding-top: 5em;
+	padding-bottom: 5em;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+     @include bp(large) {
+     	padding-top: 0;
+     	padding-bottom: 0;
+	 	height: 758px;
+	 }
+}
+
+
+.slider-home__txt {
+	 div {
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+	}
+
+	 h1 {
+	 	letter-spacing: 0.6rem;
+    	color: $color-white;
+    	font-size: 1.5625rem;
+    	span {
+    		letter-spacing: 0.1rem;
+    	    line-height: 1;
+    		font-size: 1.5em;
+    		display: block;
+    		font-family: 'Assassin';
+
+    		&::first-letter {
+    			font-size: 1.6em;
+    		}
+    	}
+    }
+
+	p {
+		letter-spacing: 0.2rem;
+		margin: 0;
+		font-size: 1.0625rem;
+		color: #c29e7d;
+	}
+
+  a {
+    letter-spacing: 0.2rem;
+    margin: 0;
+    font-size: 1.0625rem;
+    color: #c29e7d;
+    text-decoration: none;
+  }
+
+	 @include bp(large) {
+		height: 100%;
+	 div {
+	 	height: 100%;
+	 	margin-left: auto;
+	 	width: 60%;
+	 }
+
+	 h1 {
+	 	span {
+	 		font-size: 3.1875rem;
+	 	}
+	 }
+ }
+}
+
+.slick-arrow {
+	cursor: pointer;
+	outline: 0 none;
+	z-index: 10;
+	background: none;
+    border: solid rgba($color-white, .7);
+    border-width: 0 8px 8px 0;
+    display: inline-block;
+    padding: 8px;
+    font-size: 0;
+    position: absolute;
+    top: 50%;
+    margin-top: -20px;
+
+    &.slick-prev {
+       transform: rotate(135deg);
+        left: $spacer;
+    }
+
+    &.slick-next {
+        transform: rotate(-45deg);
+        right: $spacer;
+    }
+
+    @include bp(large) {
+    	&.slick-next {
+    		right: 7%;
+    	}
+
+    	&.slick-prev {
+    		left: 7%;
+    	}
+    }
+}
+
+.slick-dots {
+	position: absolute;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	right: $spacer*1.5;
+	bottom: $spacer*1.5;
+	margin: 0;
+	list-style: none;
+	font-size: 0;
+
+	li {
+	margin: 0 .3rem;
+
+	&:only-of-type {
+		display: none;
+	}
+	}
+
+	button {
+		outline: 0 none;
+		border: none;
+		width: 22px;
+		height: 22px;
+		background: rgba($color-white, .3);
+		border-radius: 100%;
+	}
+
+	 @include bp(large) {
+	    bottom: 52px;
+	    right: 6%;
+	 }
+}

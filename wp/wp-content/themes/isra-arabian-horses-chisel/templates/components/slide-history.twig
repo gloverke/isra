@@ -1,0 +1,18 @@
+{% for slide in post.get_field('h_history_slider') %}
+
+<div class="slide-history__item"  data-slick-index="{{ loop.index }}">
+	<div class="slide-history__container">
+    {% if slide.slide_image %}
+  		<div class="slide-history__thumb">
+  			<img src="{{ slide.slide_image }}" alt="Slide" />
+  		</div>
+    {% endif %}
+		<div class="slide-history__content">
+      {% if slide.inner_title %}
+			 <h3><strong>{{ slide.inner_title }}</strong></h3>
+      {% endif %}
+      {{ slide.inner_content }}
+		</div>
+	</div>
+</div>
+{% endfor %}

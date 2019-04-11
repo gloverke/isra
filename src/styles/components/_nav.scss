@@ -1,0 +1,61 @@
+/* ==========================================================================
+   #Nav
+   ========================================================================== */
+.nav {
+	display: none;
+	width: 100%;
+
+  	@include bp-down(large) {
+	  	background: $color-white;
+		text-align: right;
+		top: calc(100% + 10px);
+		left: 0;
+		padding: $spacer/2 0;
+		position: absolute;
+		z-index: 12;
+		box-shadow: 0 0 5px rgba($color-black, .04);
+	  	border-bottom: 2px solid rgba(146,146,146, .07);
+  	}
+
+  	@include bp(large) {
+  		display: block !important;
+  	}
+}
+
+.navigation {
+	letter-spacing: .18rem;
+	list-style: none;
+	margin: 0;
+	top: 0;
+
+	li {
+	margin-bottom: 0;
+	}
+	a {
+		display: block;
+		color: $color-nav;
+	    text-transform: uppercase;
+    	text-decoration: none;
+	}
+
+	 @include bp-down(large) {
+	 font-size: $body-font-size/1.5;
+	 	a {
+	 		padding: $spacer/3.5 $spacer;
+	 	}
+	 }
+
+	  @include bp(large) {
+	     padding-top: 1.4rem;
+	    justify-content: space-between;
+	    display: flex;
+
+	    li {
+	    	width: 18%;
+	  	}
+
+	  	.item-mr {
+	  		margin-right: auto;
+	  	}
+	}
+}

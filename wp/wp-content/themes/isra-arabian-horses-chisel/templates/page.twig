@@ -1,0 +1,48 @@
+{% extends "layouts/base.twig" %}
+{% set pageName =  post.title %}
+
+{% block content %}
+<div class="section bg">
+  <div class="o-wrapper">
+    <div class="blog-item margin-top--4 margin-bottom--7">
+      {% if post.thumbnail.src %}
+      <div class="blog-item__thumb">
+        <img src="{{ post.thumbnail.src }}" alt="Post Thumbnail" />
+      </div>
+      {% endif %}
+
+      <div class="blog-item__wrapper">
+        <div class="blog-item__container">
+          <div class="blog-item__header">
+            {% if post.get_field('p_subheading') %}
+            <h3>{{ post.get_field('p_subheading') }}</h3>
+            {% endif %}
+            <h1>{{ post.title }}</h1>
+            <ul class="blog-item__meta">
+              <li>
+                <svg class="feather">
+                  <use xlink:href="{{ assetPath('images/feather-sprite.svg#clock') }}"/>
+                </svg>
+                <a href="{{ post.link }}">{{ post.date("d.m.Y") }}</a>
+              </li>
+              <li>
+                <svg class="feather feather--comments">
+                  <use xlink:href="{{ assetPath('images/feather-sprite.svg#message-square') }}"/>
+                </svg>
+                <a href="{{ post.link }}">{{ post.get_comment_count() }} Comments</a>
+              </li>
+            </ul>
+          </div>
+          <div class="blog-item__content">
+            {{ post.content }}
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+{% endblock %}
+
+

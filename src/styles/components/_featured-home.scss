@@ -1,0 +1,38 @@
+/* ==========================================================================
+   #FEATURED HOME
+   ========================================================================== */
+ .featured-home {
+ 	overflow: hidden;
+ 	padding: 3px 3px;
+ 	.o-row {
+ 		flex-wrap: wrap;
+ 		margin: 0 -6px;
+ 	}
+
+ 	a {
+ 		height: 100%;
+ 		display: block;
+ 		outline: 3px solid rgba($color-white, .3);
+  		outline-offset: -20px;
+ 	}
+
+ 	img {
+ 		display: block;
+ 		object-fit: cover;
+ 		height: 100%;
+ 		width: 100%;
+ 	}
+
+ 	.o-layout__item {
+ 		padding: 3px;
+ 		max-width: 50%;
+ 		flex: 0 0 50%;
+ 	}
+
+ 	@include bp(medium) {
+ 		.o-layout__item {
+ 			max-width: 25%;
+ 			flex: 0 0 25%;
+ 		}
+ 	}
+ }

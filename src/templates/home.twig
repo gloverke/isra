@@ -1,0 +1,14 @@
+{% extends "layouts/base.twig" %}
+{% set pageName = 'Home' %}
+
+{% block content %}
+  {% include 'components/slider-home.twig' %}
+  {% include 'components/featured-home.twig' %}
+  <div class="bg section">
+	<div class="o-wrapper--lg">
+ 		 {% include 'components/blog-item.twig' %}
+ 	 </div>
+  </div>
+{% endblock %}
+
+

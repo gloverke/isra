@@ -1,0 +1,9 @@
+{% if main_nav %}
+<nav class="nav">
+	<ul class="navigation">
+    {% for item in main_nav.items %}
+		  <li class="{{ item.classes | join(' ') }}"><a href="{{ item.link }}">{{ item.title }}</a></li>
+    {% endfor %}
+	</ul>
+</nav>
+{% endif %}

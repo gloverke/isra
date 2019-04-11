@@ -1,0 +1,51 @@
+<div class="blog-item margin-top--4 margin-bottom--6">
+
+	<a href="{{ post.link }}" class="blog-item__thumb">
+      {% if post.thumbnail.src %}
+			 <img src="{{ post.thumbnail.src }}" alt="Post Thumbnail" />
+      {% endif %}
+
+      {% if post.get_field('p_fi_overlay_text') %}
+			 <span class="thumb-txt">{{ post.get_field('p_fi_overlay_text') }}</span>
+      {% endif %}
+		</a>
+
+	<div class="blog-item__wrapper">
+		<div class="blog-item__container">
+			<div class="blog-item__header">
+        {% if post.get_field('p_subheading') %}
+				  <h3>{{ post.get_field('p_subheading') }}</h3>
+        {% endif %}
+
+				<h1><a href="{{ post.link }}">{{ post.title }}</a></h1>
+				<ul class="blog-item__meta">
+
+					<li>Posted in
+            {% for term in post.terms %}
+              <a href="{{ term.link }}">{{ term.name }}</a>
+            {% endfor %}
+          </li>
+					<li>
+            <svg class="feather">
+		          <use xlink:href="{{ assetPath('images/feather-sprite.svg#clock') }}"/>
+		        </svg>
+            <a href="{{ post.link }}">{{ post.date("d.m.Y") }}</a>
+          </li>
+					<li>
+            <svg class="feather feather--comments">
+		          <use xlink:href="{{ assetPath('images/feather-sprite.svg#message-square') }}"/>
+		        </svg>
+            <a href="{{ post.link }}">{{ post.get_comment_count() }} Comments</a>
+          </li>
+				</ul>
+			</div>
+			<div class="blog-item__content">
+				<p>{{ post.preview().length(25).read_more('') }}</p>
+			</div>
+			<div class="o-layout">
+				<a href="{{ post.link }}" class="c-btn c-btn--large margin-left--auto">Read More<i class="c-btn__arrow"></i></a>
+			</div>
+		</div>
+	</div>
+
+</div>

@@ -1,0 +1,21 @@
+<div class="hero-home">
+	<div class="slider-home">
+    {% for slide in slider %}
+		<div class="slider-home__slide" style="background-image: url( {{ slide.thumbnail.src }} )">
+      {%
+        if
+        slide.get_field('slider_description_heading')
+        or
+        slide.get_field('slider_description_text')
+      %}
+			<div class="slider-home__txt o-wrapper">
+				<div class="o-layout o-layout--column">
+					<h1>{{ slide.get_field('slider_description_heading') }}</h1>
+					<p>{{ slide.get_field('slider_description_text') }}</p>
+				</div>
+			</div>
+      {% endif %}
+		</div>
+    {% endfor %}
+	</div>
+</div>

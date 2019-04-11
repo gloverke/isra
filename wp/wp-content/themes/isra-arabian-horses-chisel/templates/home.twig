@@ -1,0 +1,22 @@
+{% extends "layouts/base.twig" %}
+{% set pageName = 'Blog' %}
+
+{% block content %}
+<div class="section bg">
+  <div class="o-wrapper blog-list">
+
+    {% if o_news_heading %}
+      <h1 class="page-title">{{ o_news_heading }}</h1>
+    {% endif %}
+
+    {% for post in posts %}
+      {% include 'components/blog-item-list.twig' %}
+    {% endfor %}
+
+    {% include 'components/pagination.twig' %}
+  </div>
+
+</div>
+{% endblock %}
+
+

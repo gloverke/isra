@@ -1,0 +1,9 @@
+<div class="o-wrapper--full featured-home">
+	<div class="o-row">
+    {% for entry in below_slider %}
+		<div class="o-layout__item">
+			<a href="{{ entry.link }}"><img src="{{ entry.get_field('h_small_image') }}"/></a>
+		</div>
+    {% endfor %}
+	</div>
+</div>

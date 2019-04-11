@@ -1,0 +1,74 @@
+/* ==========================================================================
+   #LAYOUT
+   ========================================================================== */
+
+/* Simple flexbox layout system */
+
+.o-layout {
+  display: flex;
+
+  &--justify-end {
+    justify-content: flex-end;
+  }
+
+  &--justify-center {
+    justify-content: center;
+  }
+
+  &--column {
+    flex-direction: column;
+  }
+}
+
+.o-layout__item {
+  flex: 1;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.o-layout--guttered {
+  justify-content: space-between;
+
+  > .o-layout__item {
+    flex: none;
+  }
+}
+
+.o-layout--1 {
+
+> .o-layout__item {
+  width: 100%;
+  flex: 0 0 100%;
+}
+}
+
+.o-layout--2 {
+display: flex;
+justify-content: space-between;
+
+  > .o-layout__item {
+  width: 100%;
+      flex: 0 0 100%;
+    @include bp(large) {
+      width: 43%;
+      flex: 0 0 43%;
+    }
+  }
+}
+
+.o-layout--3 {
+  > .o-layout__item {
+    @include bp(medium) {
+      width: 32%;
+    }
+  }
+}
+
+.o-layout--4 {
+  > .o-layout__item {
+    @include bp(medium) {
+      width: 24%;
+    }
+  }
+}
+

@@ -1,0 +1,434 @@
+/* ==========================================================================
+   #BLOG/POST
+   ========================================================================== */
+
+  .blog-item {
+  	&__wrapper {
+      border-radius: 70px;
+  		box-shadow: 0 0 30px rgba($color-black, .06);
+
+  		h3 {
+  			margin-bottom: .6rem;
+  		}
+
+  		@include bp(large) {
+  			h3 {
+  				/*font-size: 1.45em;*/
+  				font-size: 1.25em;
+  			}
+  		}
+  	}
+
+    &__container {
+    padding-top: 2.5rem;
+    background: $color-white;
+    }
+
+  	&__header {
+  		padding: 0 2rem;
+  		h1 {
+  			color: $color-gold;
+  			font-size: 2rem;
+
+        a {
+          transition: $global-transition;
+          color: inherit;
+          text-decoration: none;
+
+        &:hover {
+          color: darken($color-gold, 10%);
+        }
+        }
+  		}
+
+  		@include bp(large) {
+  			padding: 0 5rem;
+  			h1 {
+  				margin-bottom: .7rem;
+  				font-size: 3rem;
+  				/*font-size: 3.5rem;*/
+  			}
+  		}
+  	}
+
+  	&__meta {
+  		display: flex;
+  		flex-wrap: wrap;
+  		list-style: none;
+  		margin: 0;
+  		padding: 0;
+
+  		li {
+	    	display: flex;
+    		align-items: center;
+  			width: 100%;
+
+  			.feather {
+  				fill: #b2b2b2;
+  				stroke-width: 2px;
+  				stroke: $color-white;
+
+  				&.feather--comments {
+  					width: 30px;
+  					height: 30px;
+  				}
+  			}
+  		}
+
+  		a {
+	  		color: 	$color-purple;
+	  		text-decoration: none;
+	  		margin-left: .5rem;
+  		}
+
+  		@include bp(medium)  {
+  			flex-wrap: wrap;
+
+  			li {
+  				margin-right: 2rem;
+  				width: auto;
+
+  				.feather {
+  					width: 35px;
+  					height: 35px;
+  					&.feather--comments {
+	  					width: 40px;
+	  					height: 40px;
+  					    margin-top: 3px;
+  					}
+  				}
+  			}
+  		}
+
+  	}
+
+  	&__content {
+  		padding: 1rem 2rem;
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5 {
+        color:  $heading-color;
+      }
+
+      img {
+      margin: 1rem 0 3rem;
+      }
+
+      figure {
+       margin: 2.5rem 0 3rem;
+        img {
+          margin: 0 0 .5rem;
+        }
+
+        figcaption {
+          text-align: right;
+          font-size: .7em;
+        }
+      }
+
+      ul,
+      ol {
+        padding: 0 0 0 .7rem;
+        font-size: .8em;
+      }
+
+      p {
+        a {
+          text-decoration: none;
+          color: $color-gold;
+        }
+      }
+
+
+  		@include bp(medium) {
+  			padding: 2rem 5rem 4rem;
+  		}
+  	}
+
+     &__thumb {
+      display: block;
+        position: relative;
+        span {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          font-size: 1.5em;
+          letter-spacing: .15rem;
+          color: $color-white;
+        }
+        img {
+        object-fit: cover;
+          display: block;
+          width: 100%;
+          min-height: 200px;
+          height: 100%;
+        }
+      }
+
+      @include bp(large) {
+
+      &__container {
+        padding-top: 4.1rem;
+      }
+
+      &__wrapper {
+      box-shadow: 0 0 45px rgba($color-black, .06);
+      }
+        &__thumb {
+          img {
+            height: 400px;
+          }
+
+          span {
+            font-size: 3em;
+          }
+        }
+      }
+  }
+
+  .blog-list {
+    .blog-item {
+      &:last-of-type {
+        margin-bottom: 30px !important;
+      }
+    }
+
+    @include bp(medium) {
+      .blog-item {
+      &:last-of-type {
+        margin-bottom: 55px !important;
+      }
+    }
+    }
+  }
+
+.pagination {
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    margin: 0 0 5rem;
+    padding: 0;
+
+    li {
+    margin: 0 .03rem;
+      &:nth-child(2) {
+       a {
+       background: $color-purple;
+       }
+      }
+
+      &:nth-last-child(2) {
+        a {
+       background: $color-purple;
+       }
+      }
+
+      &:nth-child(3) {
+        display: none;
+      }
+    }
+
+    @include bp(medium) {
+    margin-bottom: 8rem;
+
+      li {
+         &:nth-child(3) {
+          display: flex;
+        }
+      }
+    }
+}
+
+.pag-item {
+   color: $color-white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: $pag-bg;
+    text-decoration: none;
+
+    &.pag-prev {
+      background: $color-purple;
+      padding-left: .5rem;
+      &:after,
+      &:before {
+        content: '';
+        padding: 3px;
+        border: solid $color-white;
+        border-width: 0 2px 2px 0;
+        transform: rotate(135deg);
+      }
+
+      &:after {
+        position: relative;
+        left: -3px;
+        padding: 2px;
+      }
+    }
+
+    &.pag-next {
+      background: $color-purple;
+      padding-right: .5rem;
+      &:after,
+      &:before {
+        content: '';
+        padding: 3px;
+        border: solid $color-white;
+        border-width: 0 2px 2px 0;
+        transform: rotate(-45deg);
+      }
+
+      &:before {
+        position: relative;
+        right: -3px;
+        padding: 2px;
+      }
+    }
+
+     @include bp(medium) {
+        width: 55px;
+        height: 55px;
+
+        &.pag-prev {
+          &:before {
+            padding: 5px;
+          }
+
+          &:after {
+             padding: 3px;
+             left: -6px;
+          }
+        }
+
+        &.pag-next {
+          &:after {
+            padding: 5px;
+          }
+
+          &:before {
+             padding: 3px;
+             right: -6px;
+          }
+        }
+     }
+}
+
+/* =WordPress Core
+-------------------------------------------------------------- */
+.alignnone {
+    margin: 5px 20px 20px 0;
+}
+
+.aligncenter,
+div.aligncenter {
+    display: block;
+    margin: 5px auto 5px auto;
+}
+
+.alignright {
+    float:right;
+    margin: 5px 0 20px 20px;
+}
+
+.alignleft {
+    float: left;
+    margin: 5px 20px 20px 0;
+}
+
+a img.alignright {
+    float: right;
+    margin: 5px 0 20px 20px;
+}
+
+a img.alignnone {
+    margin: 5px 20px 20px 0;
+}
+
+a img.alignleft {
+    float: left;
+    margin: 5px 20px 20px 0;
+}
+
+a img.aligncenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.wp-caption {
+    background: #fff;
+    border: 1px solid #f0f0f0;
+    max-width: 96%; /* Image does not overflow the content area */
+    padding: 5px 3px 10px;
+    text-align: center;
+}
+
+.wp-caption.alignnone {
+    margin: 5px 20px 20px 0;
+}
+
+.wp-caption.alignleft {
+    margin: 5px 20px 20px 0;
+}
+
+.wp-caption.alignright {
+    margin: 5px 0 20px 20px;
+}
+
+.wp-caption img {
+    border: 0 none;
+    height: auto;
+    margin: 0;
+    max-width: 98.5%;
+    padding: 0;
+    width: auto;
+}
+
+.wp-caption p.wp-caption-text {
+    font-size: 11px;
+    line-height: 17px;
+    margin: 0;
+    padding: 0 4px 5px;
+}
+
+/* Text meant only for screen readers. */
+.screen-reader-text {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute !important;
+  width: 1px;
+  word-wrap: normal !important; /* Many screen reader and browser combinations announce broken words as they would appear visually. */
+}
+
+.screen-reader-text:focus {
+  background-color: #eee;
+  clip: auto !important;
+  clip-path: none;
+  color: #444;
+  display: block;
+  font-size: 1em;
+  height: auto;
+  left: 5px;
+  line-height: normal;
+  padding: 15px 23px 14px;
+  text-decoration: none;
+  top: 5px;
+  width: auto;
+  z-index: 100000;
+  /* Above WP toolbar. */
+}

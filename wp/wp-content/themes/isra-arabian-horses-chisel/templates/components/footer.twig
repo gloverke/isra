@@ -1,0 +1,40 @@
+<footer class="c-footer u-text-center">
+	<div class="o-wrapper">
+      {% if o_footer_logo %}
+    		<div class="c-footer__logo">
+    			<img src="{{ o_footer_logo }}" />
+    		</div>
+      {% endif %}
+
+      {% if footer_nav %}
+    		<ul class="c-footer__nav o-layout">
+          {% for item in footer_nav.items %}
+    	  	  <li><a href="{{ item.link }}">{{ item.title }}</a></li>
+          {% endfor %}
+    		</ul>
+      {% endif %}
+
+      {%
+        if o_instagram_link
+        or o_twitter_link
+        or o_facebook_link
+      %}
+  		<ul class="c-footer__social o-layout">
+      {% if o_instagram_link %}
+  			<li><a href="{{ o_instagram_link }}" class="social-in"></a></li>
+        {% endif %}
+
+      {% if o_twitter_link %}
+			 <li><a href="{{ o_twitter_link }}" class="social-tw"></a></li>
+      {% endif %}
+
+      {% if o_facebook_link %}
+			 <li><a href="{{ o_facebook_link }}" class="social-fb"></a></li>
+      {% endif %}
+  		</ul>
+      {% endif %}
+ 	</div>
+  {% if o_copyright_text %}
+ 	  <p>&copy; {{"now"|date('Y')}} {{ o_copyright_text }}</p>
+  {% endif %}
+</footer>

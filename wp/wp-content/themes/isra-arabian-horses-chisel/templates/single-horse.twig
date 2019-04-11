@@ -1,0 +1,100 @@
+{% extends "layouts/base.twig" %}
+{% set pageName = post.title %}
+
+{% block content %}
+<div class="bg">
+    {% if post.get_field('h_gallery_detail') %}
+	  <div class="hero-detail">
+		<div class="slider-detail">
+      {% for image in post.get_field('h_gallery_detail') %}
+  			<div class="slider-detail__slide">
+  				<img src="{{ image.image }}" alt="Gallery" />
+  			</div>
+      {% endfor %}
+		</div>
+	</div>
+  {% endif %}
+
+	<div class="section">
+		<div class="o-wrapper--lg">
+			<div class="title-section title-section--divider">
+				<h1>{{ post.title }}</h1>
+        {% if post.get_field('h_gallery_subtitle') %}
+				<h3><strong>{{ post.get_field('h_gallery_subtitle') }}</strong></h3>
+        {% endif %}
+			</div>
+
+			{{ post.content }}
+
+      {%
+        if post.get_field('h_author')
+        or post.get_field('h_author_position')
+      %}
+			<div class="center-section">
+				<h2>{{ post.get_field('h_author') }}</h2>
+				<h4>{{ post.get_field('h_author_position') }}</h4>
+			</div>
+      {% endif %}
+		</div>
+	</div>
+
+	<div class="section-shadow--top section-shadow--bottom">
+		<div class="o-wrapper--lg">
+			<div class="o-layout--2 section-accom-video">
+        {% if post.get_field('h_accomplishments') %}
+  				<div class="o-layout__item">
+  					<h3><strong>ACCOMPLISHMENTS</strong></h3>
+  					<div class="box-accomplishments">
+  						<ul>
+                {% for accomplishment in post.get_field('h_accomplishments') %}
+  							 <li><i></i>{{ accomplishment.accomplishment }}</li>
+                {% endfor %}
+  						</ul>
+  					</div>
+  				</div>
+        {% endif %}
+				<div class="o-layout__item">
+					<h3><strong>Video</strong></h3>
+					<div class="video-box">
+						<img src="{{ assetPath('images/img_horses1.jpg') }}" alt="Video" />
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="o-wrapper--full section">
+			<div class="title-section title-section--divider">
+				<h2><strong>Pedigree</strong></h2>
+			</div>
+
+			{% if post.get_field('h_pedigree') %}
+        {{ post.get_field('h_pedigree') }}
+      {% endif %}
+		</div>
+	</div>
+
+  {% if post.get_field('h_history_slider') %}
+	<div class="section section--md bg--light">
+		<div class="o-wrapper--md">
+			<div class="title-section title-section--divider">
+				<h2><strong>History</strong></h2>
+			</div>
+
+			<div class="sliders-history">
+				<ul class="slider-title">
+          {% for slide in post.get_field('h_history_slider') %}
+					 <li data-slick-index="{{ loop.index }}" class="slide-title">{{ slide.line_title }}</li>
+          {% endfor %}
+				</ul>
+
+				<div class="slider-history">
+					{% include 'components/slide-history.twig' %}
+				</div>
+			</div>
+		</div>
+	</div>
+  {% endif %}
+</div>
+
+{% endblock %}
+
+
