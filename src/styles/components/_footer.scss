@@ -126,8 +126,7 @@
 
 	@include bp(medium) {
 		&__nav {
-
-			font-size: 1.2em;
+			font-size: .9em;
 			margin: 2rem 0 4rem;
 			justify-content: space-between;
 			flex-direction: row;
@@ -159,6 +158,7 @@
 	@include bp(large) {
 
 		&__nav {
+		font-size: 1.2em;
 			margin-bottom: 7rem;
 		}
 		&:after {

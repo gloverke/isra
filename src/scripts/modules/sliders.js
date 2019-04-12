@@ -49,58 +49,96 @@ const sliders = name => {
   }
 
    if(gallery.length) {
-      gallery.on('afterChange init', function(event, slick, direction){
-    // console.log('afterChange/init', event, slick, slick.$slides);
-    // remove all prev/next
-    $('.prevSlide').removeClass('prevSlide');
-    $('.nextSlide').removeClass('nextSlide');
-    slick.$slides.removeClass('prevSlide').removeClass('nextSlide');
 
-    // find current slide
-    for (var i = 0; i < slick.$slides.length; i++)
-    {
-        var $slide = $(slick.$slides[i]);
-        if ($slide.hasClass('slick-current')) {
-            // update DOM siblings
-            $slide.prev().addClass('prevSlide');
-            $slide.next().addClass('nextSlide');
-            break;
+    $(window).on('load', function(e) {
+      if(!($(window).width() > 768 && $('.slide-gallery__item').length < 3)) {
+        gallery.slick({
+          focusOnSelect: true,
+          centerMode: true,
+          mobileFirst: true,
+          centerPadding: '0',
+          arrows: true,
+          slidesToShow: 1,
+          responsive: [
+            
+            {
+              breakpoint: 768,
+              settings: {
+                centerMode: true,
+                centerPadding: '150px',
+                slidesToShow: 1
+              }
+            },
+
+            {
+              breakpoint: 1024,
+              settings: {
+                centerMode: true,
+                centerPadding: '250px',
+                slidesToShow: 1
+              }
+            },
+            {
+              breakpoint: 1285,
+              settings: {
+                centerMode: true,
+                centerPadding: '330px',
+                slidesToShow: 1
+              }
+            }
+            ]
+        });
+      }
+    });
+
+    $(window).on('resize', function(e) {
+      if($(window).width() > 768 && $('.slide-gallery__item').not('.slick-cloned').length < 3) {
+        if(gallery.length) {
+          gallery.slick('unslick');
         }
-    }
+      }
+
+      if(!gallery.hasClass('slick-initialized') && $(window).width() <= 768) {
+        gallery.slick({
+          focusOnSelect: true,
+          centerMode: true,
+          mobileFirst: true,
+          centerPadding: '0',
+          arrows: true,
+          slidesToShow: 1,
+          responsive: [
+            
+            {
+              breakpoint: 768,
+              settings: {
+                centerMode: true,
+                centerPadding: '150px',
+                slidesToShow: 1
+              }
+            },
+
+            {
+              breakpoint: 1024,
+              settings: {
+                centerMode: true,
+                centerPadding: '250px',
+                slidesToShow: 1
+              }
+            },
+            {
+              breakpoint: 1285,
+              settings: {
+                centerMode: true,
+                centerPadding: '300px',
+                slidesToShow: 1
+              }
+            }
+            ]
+        });
+      }
+    });
+
   }
-)
-.on('beforeChange', function(event, slick) {
-    // optional, but cleaner maybe
-    // remove all prev/next
-    $('.prevSlide').removeClass('prevSlide');
-    $('.nextSlide').removeClass('nextSlide');
-    slick.$slides.removeClass('prevSlide').removeClass('nextSlide');
-}).slick({
-        centerMode: true,
-        mobileFirst: true,
-        centerPadding: '20px',
-        arrows: true,
-        slidesToShow: 1,
-        responsive: [
-          {
-            breakpoint: 560,
-            settings: {
-              centerMode: true,
-              centerPadding: '20px',
-              slidesToShow: 3
-            }
-          },
-          {
-            breakpoint: 1285,
-            settings: {
-              centerMode: true,
-              centerPadding: '180px',
-              slidesToShow: 3
-            }
-          }
-          ]
-      });
-    }
 
 
   if(sliderTitle.length) {
@@ -144,6 +182,5 @@ const sliders = name => {
         ]
     });
   }
-
 };
 export default sliders;

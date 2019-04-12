@@ -4,17 +4,54 @@
 
 .slider-gallery {
 	margin-bottom: 2rem;
-	padding: 1.5rem 0 6rem;
+	padding: 1.5rem 2rem 6rem;
 
 	.slick-arrow {
 		border-color: transparent #f2efef #f2efef  transparent;
 
 		&.slick-next {
-		right: -5px;
+		right: 0;
 		}
 
 		&.slick-prev {
-		left: -5px;
+		left: 0;
+		}
+	}
+	&:not(.slick-initialized) {
+		display: flex;
+		justify-content: center;
+
+		.slide-gallery__content {
+			height: 100%;
+		}
+
+		.slide-gallery__item {
+			flex: 1;
+		}
+
+		@include bp(xlarge) {
+			padding-left: 8rem;
+			padding-right: 8rem;
+		}
+	}
+
+	&.slick-initialized {
+		.slide-gallery__content {
+			@include bp(medium) {
+			img {
+				filter: blur(3px);
+				min-height: 500px;
+				max-height: 700px;
+			}
+
+			.c-btn {
+				display: none;
+			}
+
+			div {
+				filter: blur(3px);
+			}
+		}
 		}
 	}
 
@@ -37,34 +74,44 @@
 	}
 
 	@include bp(xlarge)  {
-		padding-left: 4rem;
-		padding-right: 4rem;
+		padding-left: 8rem;
+		padding-right: 8rem;
 	}
 }
 
 .slide-gallery__item {
-margin: 0 -2rem;
 	outline: 0 none;
 	position: relative;
 
-	&.slick-center {
+	&:only-of-type {
+	float: none;
+		width: 100% !important;
+		margin: 0 auto;
+		max-width: 500px;
 
-		z-index: 100;
-		position: relative;
-
-		.c-btn {
+		.slide-gallery__content .c-btn {
 			display: block;
 		}
+	}
 
-		.slide-gallery__content {
-			transform: scale(1);
+	@include bp(small) {
+		&.slick-center {
 
-			div {
-			filter: none;
+			z-index: 100;
+			position: relative;
+
+			.c-btn {
+				display: block !important;
 			}
 
-			img {
-			filter: none;
+			.slide-gallery__content {
+				div {
+				filter: none;
+				}
+
+				img {
+				filter: none;
+				}
 			}
 		}
 	}
@@ -74,20 +121,12 @@ margin: 0 -2rem;
   z-index: 50;
 }
 
-@media screen and (min-width: 561px) {
-  .prevSlide .slide-gallery__content,
-  .nextSlide .slide-gallery__content {
-    transform: scale(.95);
-    transition: none;
-  }
-  }
 
 .slide-gallery__content {
 	color: $color-white;
-	transform: scale(.85);
 	transition: all .3s;
 	z-index: 20;
-	border:  5px solid  #f8f8f8;
+	border: 4px solid  #f8f8f8;
 
 	h3 {
 		padding: 0 $spacer*1.5;
@@ -105,7 +144,6 @@ margin: 0 -2rem;
 	}
 
 	.c-btn {
-		display: none;
 		letter-spacing: .1rem;
 		text-transform: uppercase;
 		text-align: center;
@@ -114,33 +152,22 @@ margin: 0 -2rem;
 	}
 
 	img {
-	  filter: blur(3px);
+		height: 700px;
 		display: block;
-		min-height: 300px;
-		max-height: 500px;
-		height: 100%;
 		width: 100%;
 		object-fit: cover;
 	}
 
 	div {
-	  filter: blur(3px);
-		left: 0;
-		width: 100%;
+		left: 4px;
+		width: calc(100% - 8px);
 		bottom: 0;
 		position: absolute;
 	}
 
-	@include bp(small) {
-		img {
-			min-height: 500px;
-			max-height: 700px;
-		}
-	}
-
 	@include bp(large) {
 		img {
-			max-height: none;
+			max-height: none !important;
 			height: 1000px;
 		}
 
