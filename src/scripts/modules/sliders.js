@@ -1,7 +1,8 @@
 import $ from 'jquery';
 
 const sliders = name => {
-	const sliderHome = $('.slider-home');
+  const sliderHome = $('.slider-home');
+  const sliderVideo = $('.slider-video');
   const sliderDetail = $('.slider-detail');
   const gallery = $('.slider-gallery');
   const sliderTitle = $('.slider-title');
@@ -9,6 +10,19 @@ const sliders = name => {
 
   if(sliderHome.length) {
     sliderHome.slick({
+      dots: true,
+      infinite: true,
+      autoplay: true,
+      arrows: true,
+      speed: 1000,
+      autoplaySpeed: 5000,
+      slidesToShow: 1,
+      slidesToScroll: 1
+    });
+  }
+
+  if(sliderVideo.length) {
+    sliderVideo.slick({
       dots: true,
       infinite: true,
       autoplay: true,
@@ -60,7 +74,7 @@ const sliders = name => {
           arrows: true,
           slidesToShow: 1,
           responsive: [
-            
+
             {
               breakpoint: 768,
               settings: {
@@ -107,7 +121,7 @@ const sliders = name => {
           arrows: true,
           slidesToShow: 1,
           responsive: [
-            
+
             {
               breakpoint: 768,
               settings: {

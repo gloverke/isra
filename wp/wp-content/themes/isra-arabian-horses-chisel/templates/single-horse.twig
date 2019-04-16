@@ -53,12 +53,26 @@
   					</div>
   				</div>
         {% endif %}
-				<div class="o-layout__item">
-					<h3><strong>Video</strong></h3>
-					<div class="video-box">
-						<img src="{{ assetPath('images/img_horses1.jpg') }}" alt="Video" />
-					</div>
-				</div>
+
+        {%
+          if post.get_field('h_video_heading')
+          or post.get_field('h_video_gallery_images')
+        %}
+  				<div class="o-layout__item">
+            {% if post.get_field('h_video_heading') %}
+  					 <h3>{{ post.get_field('h_video_heading') }}</h3>
+            {% endif %}
+            {% if post.get_field('h_video_gallery_images') %}
+            <div class="slider-video">
+              {% for video_slide in post.get_field('h_video_gallery_images') %}
+      					<div class="video-box">
+      						<img src="{{ video_slide.image }}" alt="Horse Image" />
+      					</div>
+              {% endfor %}
+            </div>
+            {% endif %}
+  				</div>
+        {% endif %}
 			</div>
 		</div>
 		<div class="o-wrapper--full section">
